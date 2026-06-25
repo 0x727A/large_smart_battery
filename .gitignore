@@ -1,0 +1,15 @@
+*.dll
+*.pdb
+*.mdb
+*.user
+*.suo
+
+.agents/
+.codex/
+.vs/
+
+anim/
+tmp/
+
+源代码/bin/
+源代码/obj/
