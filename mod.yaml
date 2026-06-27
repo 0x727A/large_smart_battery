@@ -1,3 +1,3 @@
 title: "大容量智能电池 / Large Smart Battery"
-description: "添加新建筑：大容量智能电池（Large Smart Battery）。容量为100kJ，每秒电力损耗6.7J/s，自身产热为5kDTU/s。材料需要800kg钢、100kg塑料和100kg玻璃。支持中文和英文显示。"
+description: "添加新建筑：大容量智能电池（Large Smart Battery）。容量100kJ，支持模组设置中的成本模式选择。默认标准成本：1200kg钢、150kg塑料、150kg玻璃、10J/s漏电、7.5kDTU/s发热。可选轻量成本：800kg钢、100kg塑料、100kg玻璃、6.7J/s漏电、5kDTU/s发热。内置 PLib 4.25 用于设置界面。Adds a 100 kJ Large Smart Battery with Standard Cost by default and an optional Light Cost mode."
 staticID: "rui.BCSmartBattery"

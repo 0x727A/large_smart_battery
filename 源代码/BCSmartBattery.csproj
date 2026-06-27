@@ -53,12 +53,17 @@
       <HintPath>D:\SteamLibrary\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="PLib">
+      <HintPath>lib\PLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyLoad.cs" />
     <Compile Include="BuildPatch.cs" />
     <Compile Include="BUILDING_MOD.cs" />
     <Compile Include="BCSmartBatteryConfig.cs" />
+    <Compile Include="BCSmartBatteryOptions.cs" />
     <Compile Include="StringUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

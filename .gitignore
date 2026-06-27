@@ -4,6 +4,8 @@
 *.user
 *.suo
 
+!源代码/lib/PLib.dll
+
 .agents/
 .codex/
 .vs/

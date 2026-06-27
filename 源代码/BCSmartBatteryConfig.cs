@@ -12,21 +12,23 @@ namespace BCSmartBattery
         private const int Height = 2;
         private const int Hitpoints = 30;
         private const float ConstructionTime = 60f;
-        private const float SteelMassKg = 800f;
-        private const float PlasticMassKg = 100f;
-        private const float GlassMassKg = 100f;
         private const float MeltingPoint = 800f;
         private const float ExhaustTemperatureActive = 0f;
-        private const float SelfHeatKilowatts = 5f;
         private const float CapacityJoules = 100000f;
-        private const float JoulesLostPerSecond = 6.7f;
         private const int PowerSortOrder = 1000;
         private static readonly Color32 SteelTint = new Color32(125, 175, 195, 255);
 
         public override BuildingDef CreateBuildingDef()
         {
+            BCSmartBatteryBalanceProfile balance = BCSmartBatteryOptions.CurrentProfile;
+
             // Construction materials and mass.
-            float[] construction_mass = new float[] { SteelMassKg, PlasticMassKg, GlassMassKg };
+            float[] construction_mass = new float[]
+            {
+                balance.SteelMassKg,
+                balance.PlasticMassKg,
+                balance.GlassMassKg
+            };
             string[] construction_materials = new string[]
             {
                 SimHashes.Steel.ToString(),
@@ -40,7 +42,7 @@ namespace BCSmartBattery
                 ID, Width, Height, Hitpoints, Anim,
                 ConstructionTime, construction_mass, construction_materials,
                 MeltingPoint, ExhaustTemperatureActive,
-                SelfHeatKilowatts,
+                balance.SelfHeatKilowatts,
                 TUNING.BUILDINGS.DECOR.PENALTY.TIER2,
                 noise
             );
@@ -62,9 +64,10 @@ namespace BCSmartBattery
 
         public override void DoPostConfigureComplete(GameObject go)
         {
+            BCSmartBatteryBalanceProfile balance = BCSmartBatteryOptions.CurrentProfile;
             BatterySmart batterySmart = go.AddOrGet<BatterySmart>();
             batterySmart.capacity = CapacityJoules;
-            batterySmart.joulesLostPerSecond = JoulesLostPerSecond;
+            batterySmart.joulesLostPerSecond = balance.JoulesLostPerSecond;
             batterySmart.powerSortOrder = PowerSortOrder;
             base.DoPostConfigureComplete(go);
 
